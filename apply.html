@@ -486,6 +486,16 @@
       margin-top: 14px;
     }
 
+    .btn-full {
+      width: 100%;
+    }
+
+    .position-count {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
     .form-success {
       display: none;
       padding: 22px;
@@ -637,7 +647,7 @@
 
             <article class="role-card">
               <div class="role-title">Backend / Database Developer</div>
-              <p>Construct our AI-ready infrastructure. Build an AI-ready backend using Python and FastAPI, and manage the PostgreSQL database via Supabase.</p>
+              <p>Build the infrastructure for our AI-ready backend using Python and FastAPI, and manage the PostgreSQL database via Supabase.</p>
               <span class="role-tag">Engineering</span>
             </article>
 
@@ -667,7 +677,7 @@
             </article>
 
             <article class="role-card">
-              <div class="role-title">Elder / Teacher Validators <em style="font-style:normal; font-weight:400; color:var(--muted);">(3–4 positions)</em></div>
+              <div class="role-title">Elder / Teacher Validators <em class="position-count">(3–4 positions)</em></div>
               <p>Are you a respected Kasem teacher, elder, or linguist? We need your deep grammatical and cultural knowledge to review submissions, ensure dialect purity, and protect our heritage. Monthly stipends provided.</p>
               <span class="role-tag stipend">Stipend provided</span>
             </article>
@@ -832,7 +842,7 @@
               <textarea id="message" name="message" required placeholder="Tell us a little about yourself, your background, and why this mission matters to you…"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%;">Submit application →</button>
+            <button type="submit" class="btn btn-primary btn-full">Submit application →</button>
             <p class="form-note">Your information will only be used to process your application and contact you about your role. We do not share your details with third parties.</p>
           </form>
 

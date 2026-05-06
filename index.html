@@ -501,6 +501,70 @@
       font-weight: 800;
     }
 
+    /* ── Recruitment ad ── */
+    .recruit-strip {
+      background:
+        radial-gradient(circle at top right, rgba(217, 163, 35, 0.18), transparent 40%),
+        var(--green-950);
+      padding: 84px 0;
+    }
+
+    .recruit-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .recruit-text .section-kicker {
+      color: var(--gold-300);
+    }
+
+    .recruit-text h2 {
+      color: var(--white);
+      margin-top: 8px;
+    }
+
+    .recruit-text p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.06rem;
+      margin: 0 0 28px;
+    }
+
+    .recruit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .recruit-roles {
+      display: grid;
+      gap: 12px;
+    }
+
+    .recruit-role-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 180ms ease;
+    }
+
+    .recruit-role-pill:hover {
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    .recruit-role-pill span {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
     footer {
       background: var(--green-950);
       color: rgba(255, 255, 255, 0.74);
@@ -759,7 +823,8 @@
 
       .hero-stats,
       .cards,
-      .alliance-roles {
+      .alliance-roles,
+      .recruit-inner {
         grid-template-columns: 1fr;
       }
 
@@ -838,6 +903,7 @@
         <a href="#roadmap">Roadmap</a>
         <a href="#partners">Join</a>
         <a href="https://waffle-taffy-61548237.figma.site/" target="_blank" rel="noreferrer">Prototype</a>
+        <a href="apply.html">Apply</a>
         <a class="btn btn-primary" href="mailto:francis@azlearner.me">Contact</a>
       </div>
     </div>
@@ -1050,6 +1116,41 @@
               <p>Collect consented audio, transcribe radio and community recordings, and prepare the foundation for future speech recognition and text-to-speech.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Recruitment Ad ── -->
+    <section class="recruit-strip" aria-label="Join our team">
+      <div class="container recruit-inner">
+        <div class="recruit-text">
+          <div class="section-kicker">🚀 We are hiring</div>
+          <h2>Join the core team building Kasem AI.</h2>
+          <p>
+            We are recruiting builders, validators, and community leaders for our 18-month MVP mission in Northern Ghana. Whether you are a developer, a Kasem elder, or a student leader — there is a role for you.
+          </p>
+          <div class="recruit-actions">
+            <a class="btn btn-primary" href="apply.html">See open roles &amp; apply →</a>
+            <a class="btn btn-outline" href="apply.html" style="border-color:rgba(255,255,255,0.22);color:var(--white);background:rgba(255,255,255,0.08);">Learn more</a>
+          </div>
+        </div>
+
+        <div class="recruit-roles" aria-label="Sample open roles">
+          <a class="recruit-role-pill" href="apply.html#open-roles">
+            <span>💻</span> Frontend &amp; Backend Developers
+          </a>
+          <a class="recruit-role-pill" href="apply.html#open-roles">
+            <span>🎨</span> UI/UX Designer
+          </a>
+          <a class="recruit-role-pill" href="apply.html#open-roles">
+            <span>🗣️</span> Elder / Teacher Validators
+          </a>
+          <a class="recruit-role-pill" href="apply.html#open-roles">
+            <span>📦</span> Product Manager
+          </a>
+          <a class="recruit-role-pill" href="apply.html#open-roles">
+            <span>🤝</span> Community Organiser &amp; more…
+          </a>
         </div>
       </div>
     </section>

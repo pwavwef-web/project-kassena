@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join Project Kasena — help digitize the Kasem language and build Kasem AI. Open roles in tech, data, linguistics, and community organising." />
+  <link rel="canonical" href="https://kassena.azlearner.me/apply" />
+  <meta name="theme-color" content="#063d2b" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Join Project Kasena — Help Us Digitize Our Heritage &amp; Build Kasem AI" />
+  <meta property="og:description" content="We are recruiting a core MVP team for an 18-month mission to build the foundational digital infrastructure for the Kasem language." />
+  <meta property="og:image" content="assets/project-kasena-linkedin-banner.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kassena.azlearner.me/apply" />
+
+  <title>Join Our Team | Project Kasena</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-950: #062f23;
+      --green-900: #073d2b;
+      --green-800: #0b5139;
+      --green-700: #146446;
+      --gold-600: #c98b1b;
+      --gold-500: #d9a323;
+      --gold-300: #f0cf72;
+      --cream-100: #fbf5e8;
+      --cream-200: #f3ead8;
+      --ink: #10231c;
+      --muted: #607168;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(6, 47, 35, 0.16);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--cream-100);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 245, 232, 0.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(6, 47, 35, 0.08);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-950);
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--green-900);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 800;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+      color: #211306;
+      box-shadow: 0 16px 34px rgba(201, 139, 27, 0.24);
+    }
+
+    .btn-secondary {
+      background: var(--green-900);
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(6, 47, 35, 0.2);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(6, 47, 35, 0.18);
+      color: var(--green-950);
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 76px 0 66px;
+      background:
+        radial-gradient(circle at top left, rgba(217, 163, 35, 0.22), transparent 34%),
+        linear-gradient(135deg, #fff8ea 0%, #f5ead2 42%, #e8d2af 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(6, 47, 35, 0.04) 1px, transparent 1px),
+        linear-gradient(rgba(6, 47, 35, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, #000, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(6, 47, 35, 0.13);
+      background: rgba(255, 255, 255, 0.62);
+      color: var(--green-900);
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      margin: 24px 0 20px;
+      color: var(--green-950);
+    }
+
+    h1 span { color: var(--gold-600); }
+
+    .hero-copy {
+      font-size: clamp(1.06rem, 2vw, 1.22rem);
+      color: #31463d;
+      max-width: 660px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 32px 0 0;
+    }
+
+    /* ── Section commons ── */
+    section { padding: 84px 0; }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .section-kicker {
+      color: var(--gold-600);
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.84rem;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3.8vw, 3.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      margin: 10px 0 16px;
+      color: var(--green-950);
+    }
+
+    .section-head p {
+      color: #41554c;
+      font-size: 1.08rem;
+      margin: 0;
+    }
+
+    /* ── Role group ── */
+    .role-group {
+      margin-bottom: 56px;
+    }
+
+    .role-group-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid rgba(6, 47, 35, 0.08);
+    }
+
+    .role-group-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: var(--green-900);
+      color: var(--gold-300);
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .role-group-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: var(--green-950);
+      letter-spacing: -0.02em;
+    }
+
+    .role-group-header p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* ── Role cards ── */
+    .role-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .role-card {
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(6, 47, 35, 0.08);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 48px rgba(6, 47, 35, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .role-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 26px 60px rgba(6, 47, 35, 0.13);
+    }
+
+    .role-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--green-950);
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .role-card p {
+      color: var(--muted);
+      margin: 0 0 16px;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .role-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(6, 47, 35, 0.07);
+      color: var(--green-900);
+    }
+
+    .role-tag.stipend {
+      background: rgba(217, 163, 35, 0.15);
+      color: #7a5500;
+    }
+
+    /* ── Why join banner ── */
+    .why-banner {
+      background: var(--green-950);
+      border-radius: 38px;
+      padding: 52px;
+      color: var(--white);
+      box-shadow: var(--shadow);
+      margin-bottom: 56px;
+    }
+
+    .why-banner .section-kicker {
+      color: var(--gold-300);
+    }
+
+    .why-banner h2 {
+      color: var(--white);
+      max-width: 640px;
+    }
+
+    .why-banner p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.06rem;
+      max-width: 680px;
+      margin: 0 0 28px;
+    }
+
+    .perks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .perk {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .perk-icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .perk strong {
+      display: block;
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .perk span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* ── Apply form section ── */
+    .apply-section {
+      background: var(--cream-200);
+      padding: 94px 0;
+    }
+
+    .apply-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .apply-info h2 {
+      margin-top: 8px;
+    }
+
+    .apply-info p {
+      color: #41554c;
+      font-size: 1.05rem;
+      margin: 0 0 24px;
+    }
+
+    .apply-info .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--green-950);
+      color: var(--white);
+      font-weight: 800;
+      display: block;
+      transition: background 180ms ease;
+    }
+
+    .contact-item:hover {
+      background: var(--green-800);
+    }
+
+    /* ── Application form ── */
+    .apply-form-wrap {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(6, 47, 35, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px;
+    }
+
+    .apply-form-wrap h3 {
+      margin: 0 0 24px;
+      color: var(--green-950);
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--green-950);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(6, 47, 35, 0.14);
+      background: var(--white);
+      font-family: inherit;
+      font-size: 0.97rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green-700);
+      box-shadow: 0 0 0 3px rgba(20, 100, 70, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .form-success {
+      display: none;
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(6, 47, 35, 0.06);
+      border: 1px solid rgba(6, 47, 35, 0.12);
+      color: var(--green-900);
+      font-weight: 700;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--green-950);
+      color: rgba(255, 255, 255, 0.74);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      font-size: 0.92rem;
+    }
+
+    .footer-inner strong { color: var(--white); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav-inner { min-height: 68px; }
+      .nav-links { display: none; }
+
+      .role-cards,
+      .apply-box,
+      .perks {
+        grid-template-columns: 1fr;
+      }
+
+      .why-banner {
+        padding: 36px 28px;
+      }
+
+      section { padding: 64px 0; }
+    }
+
+    @media (max-width: 520px) {
+      .container { width: min(100% - 28px, 1120px); }
+
+      .brand span { font-size: 0.82rem; }
+
+      .hero-actions { flex-direction: column; }
+
+      .btn { width: 100%; }
+
+      .why-banner {
+        padding: 28px 22px;
+        border-radius: 24px;
+      }
+
+      .apply-form-wrap {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Project Kasena home">
+        <img src="assets/project-kasena-logo.png" alt="Project Kasena logo" />
+        <span>Project Kasena</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/#mission">Mission</a>
+        <a href="/#alliance">Alliance</a>
+        <a href="/#roadmap">Roadmap</a>
+        <a href="/#partners">Contact</a>
+        <a href="https://waffle-taffy-61548237.figma.site/" target="_blank" rel="noreferrer">Prototype</a>
+        <a class="btn btn-primary" href="#apply-now">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- ── Hero ── -->
+    <header class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="eyebrow">🌍 We are hiring — Join the movement</div>
+          <h1>Help us build <span>Kasem AI.</span></h1>
+          <p class="hero-copy">
+            Project Kasena is partnering with Indigen World on an ambitious 18-month mission to build the foundational digital infrastructure for the Kasem language. We are creating a community-driven digital dictionary and translation web app that will eventually power a full Kasem AI assistant capable of text and voice recognition.
+          </p>
+          <p class="hero-copy" style="margin-top: -12px;">
+            We are actively recruiting a core MVP team to launch our pilot in Northern Ghana. Whether you are a student, a tech professional, or a respected community elder — <strong>we have a role for you.</strong>
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#apply-now">Apply for a role</a>
+            <a class="btn btn-secondary" href="#open-roles">See open positions</a>
+            <a class="btn btn-outline" href="/">Back to main site</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Open Roles ── -->
+    <section id="open-roles">
+      <div class="container">
+
+        <div class="section-head">
+          <div class="section-kicker">Open positions</div>
+          <h2>Find your role in our core team.</h2>
+          <p>We need people across three areas: Technology &amp; Product, Data &amp; Linguistics, and Operations &amp; Community. All roles are part of the initial MVP team building toward a 90-day pilot in Northern Ghana.</p>
+        </div>
+
+        <!-- Technical & Product -->
+        <div class="role-group">
+          <div class="role-group-header">
+            <div class="role-group-icon">💻</div>
+            <div>
+              <h3>Technical &amp; Product Team</h3>
+              <p>Build the platform, design the experience, and manage the product roadmap.</p>
+            </div>
+          </div>
+
+          <div class="role-cards">
+            <article class="role-card">
+              <div class="role-title">Product Manager</div>
+              <p>Guide our MVP launch and roadmap. Oversee the product scope, feature execution, and weekly sprint planning to ensure we hit our pilot milestones on time.</p>
+              <span class="role-tag">Product</span>
+            </article>
+
+            <article class="role-card">
+              <div class="role-title">Frontend Developer</div>
+              <p>Build a lightning-fast, mobile-first Progressive Web App (PWA) using Next.js (React) or Flutter. Our users are primarily on low-bandwidth mobile connections in Northern Ghana.</p>
+              <span class="role-tag">Engineering</span>
+            </article>
+
+            <article class="role-card">
+              <div class="role-title">Backend / Database Developer</div>
+              <p>Construct our AI-ready infrastructure. Build an AI-ready backend using Python and FastAPI, and manage the PostgreSQL database via Supabase.</p>
+              <span class="role-tag">Engineering</span>
+            </article>
+
+            <article class="role-card">
+              <div class="role-title">UI/UX Designer</div>
+              <p>Craft beautiful, intuitive, and culturally-inspired interfaces that are simple enough to require zero onboarding, for users ranging from elders to school students.</p>
+              <span class="role-tag">Design</span>
+            </article>
+          </div>
+        </div>
+
+        <!-- Data & Linguistic -->
+        <div class="role-group">
+          <div class="role-group-header">
+            <div class="role-group-icon">🗣️</div>
+            <div>
+              <h3>Data &amp; Linguistic Team</h3>
+              <p>Ensure the quality and cultural integrity of every word and phrase in the corpus.</p>
+            </div>
+          </div>
+
+          <div class="role-cards">
+            <article class="role-card">
+              <div class="role-title">Data &amp; Validation Coordinator</div>
+              <p>Manage our master data schema, contribution workflow, and validation queues. Keep the data pipeline clean, consistent, and well-documented from collection through to publication.</p>
+              <span class="role-tag">Data</span>
+            </article>
+
+            <article class="role-card">
+              <div class="role-title">Elder / Teacher Validators <em style="font-style:normal; font-weight:400; color:var(--muted);">(3–4 positions)</em></div>
+              <p>Are you a respected Kasem teacher, elder, or linguist? We need your deep grammatical and cultural knowledge to review submissions, ensure dialect purity, and protect our heritage. Monthly stipends provided.</p>
+              <span class="role-tag stipend">Stipend provided</span>
+            </article>
+
+            <article class="role-card">
+              <div class="role-title">Pilot Contributor Captains</div>
+              <p>Student leaders, particularly from CKT-UTAS and local Senior High Schools, who will mobilize peers for data submission and run on-the-ground data drives during our pilot.</p>
+              <span class="role-tag">Community</span>
+            </article>
+          </div>
+        </div>
+
+        <!-- Operations & Community -->
+        <div class="role-group">
+          <div class="role-group-header">
+            <div class="role-group-icon">🤝</div>
+            <div>
+              <h3>Operations &amp; Community Team</h3>
+              <p>Connect the project to the community, manage finances, and bridge two partner organisations.</p>
+            </div>
+          </div>
+
+          <div class="role-cards">
+            <article class="role-card">
+              <div class="role-title">Community Organiser</div>
+              <p>Lead our grassroots engagement initiatives: coordinate Data Drives, mobilize through community radio campaigns, and manage school outreach and engagement across the Upper East Region.</p>
+              <span class="role-tag">Operations</span>
+            </article>
+
+            <article class="role-card">
+              <div class="role-title">Finance / Admin Assistant</div>
+              <p>Manage our micro-job bounty payouts to youth contributors, track contributor earnings, and maintain financial accountability across the project.</p>
+              <span class="role-tag">Operations</span>
+            </article>
+
+            <article class="role-card">
+              <div class="role-title">Indigen World Liaison</div>
+              <p>Coordinate cultural storytelling content between Project Kasena and Indigen World, manage diaspora onboarding, and ensure strategic alignment throughout the 90-day joint pilot.</p>
+              <span class="role-tag">Partnerships</span>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Why Join ── -->
+    <section style="padding-top: 0; padding-bottom: 84px;">
+      <div class="container">
+        <div class="why-banner">
+          <div class="section-kicker">Why join us?</div>
+          <h2>An act of technological sovereignty.</h2>
+          <p>
+            You will be part of a historic movement to ensure that when the next generation asks the internet a question, it can answer them in Kasem. This is about building the tools of the future — by our community, for our community.
+          </p>
+          <p>
+            <em>"Preserving Our Language. Empowering Our People."</em>
+          </p>
+          <a class="btn btn-primary" href="#apply-now">Apply today</a>
+
+          <div class="perks">
+            <div class="perk">
+              <div class="perk-icon">🌍</div>
+              <strong>Historic mission</strong>
+              <span>Be a founding member of the first Kasem digital language infrastructure.</span>
+            </div>
+            <div class="perk">
+              <div class="perk-icon">🚀</div>
+              <strong>Build real products</strong>
+              <span>Ship an MVP that real communities will use — dictionary, corpus, and future AI.</span>
+            </div>
+            <div class="perk">
+              <div class="perk-icon">🤝</div>
+              <strong>Community ownership</strong>
+              <span>We are building this with the community — elders, students, and diaspora.</span>
+            </div>
+            <div class="perk">
+              <div class="perk-icon">💰</div>
+              <strong>Stipends available</strong>
+              <span>Elder and teacher validators receive monthly stipends for their invaluable expertise.</span>
+            </div>
+            <div class="perk">
+              <div class="perk-icon">🎓</div>
+              <strong>Youth opportunity</strong>
+              <span>Micro-jobs and data-bounty earnings for student contributors and captains.</span>
+            </div>
+            <div class="perk">
+              <div class="perk-icon">🌐</div>
+              <strong>Alliance with Indigen World</strong>
+              <span>Joint pilot with a global platform focused on indigenous heritage and diaspora.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Apply ── -->
+    <section id="apply-now" class="apply-section">
+      <div class="container apply-box">
+
+        <div class="apply-info">
+          <div class="section-kicker">How to apply</div>
+          <h2>Ready to join us?</h2>
+          <p>
+            Fill in the form with your name, the role you are interested in, and a short message about why you want to be part of Project Kasena. You can also reach us directly by email or phone.
+          </p>
+          <p>
+            We review every application personally. All backgrounds — student, elder, professional, or community volunteer — are welcome.
+          </p>
+
+          <div class="contact-list" aria-label="Contact details">
+            <a class="contact-item" href="mailto:pwavwef@gmail.com?subject=Project%20Kasena%20Application">✉️ pwavwef@gmail.com</a>
+            <a class="contact-item" href="mailto:francis@azlearner.me?subject=Project%20Kasena%20Application">✉️ francis@azlearner.me</a>
+            <a class="contact-item" href="tel:+233557535673">📞 0557535673</a>
+            <div class="contact-item">📍 Upper East Region, Ghana &amp; beyond</div>
+          </div>
+        </div>
+
+        <div class="apply-form-wrap" id="applicationForm">
+          <h3>Send your application</h3>
+          <form id="applyForm" novalidate>
+            <div class="form-group">
+              <label for="fullName">Full name <span aria-hidden="true">*</span></label>
+              <input type="text" id="fullName" name="fullName" required placeholder="e.g. Akosua Abubakar" autocomplete="name" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone number <span aria-hidden="true">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+233 …" autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
+              <label for="role">Role you are applying for <span aria-hidden="true">*</span></label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Select a role…</option>
+                <optgroup label="Technical &amp; Product">
+                  <option value="Product Manager">Product Manager</option>
+                  <option value="Frontend Developer">Frontend Developer</option>
+                  <option value="Backend / Database Developer">Backend / Database Developer</option>
+                  <option value="UI/UX Designer">UI/UX Designer</option>
+                </optgroup>
+                <optgroup label="Data &amp; Linguistic">
+                  <option value="Data &amp; Validation Coordinator">Data &amp; Validation Coordinator</option>
+                  <option value="Elder / Teacher Validator">Elder / Teacher Validator</option>
+                  <option value="Pilot Contributor Captain">Pilot Contributor Captain</option>
+                </optgroup>
+                <optgroup label="Operations &amp; Community">
+                  <option value="Community Organiser">Community Organiser</option>
+                  <option value="Finance / Admin Assistant">Finance / Admin Assistant</option>
+                  <option value="Indigen World Liaison">Indigen World Liaison</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Why do you want to join Project Kasena? <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" required placeholder="Tell us a little about yourself, your background, and why this mission matters to you…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">Submit application →</button>
+            <p class="form-note">Your information will only be used to process your application and contact you about your role. We do not share your details with third parties.</p>
+          </form>
+
+          <div class="form-success" id="formSuccess" role="alert">
+            🎉 Thank you! Your application has been sent. We will be in touch soon.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><strong>Project Kasena</strong> × Indigen World — Digitizing Our Heritage</div>
+      <div>© <span id="year"></span>
+        <a href="https://francis.azlearner.me" target="_blank" rel="noreferrer"> Francis Pwavwe.</a>
+        All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Application form — send via mailto fallback
+    (function () {
+      var form = document.getElementById("applyForm");
+      var successMsg = document.getElementById("formSuccess");
+      if (!form) return;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        var fullName = form.fullName.value.trim();
+        var email    = form.email.value.trim();
+        var role     = form.role.value;
+        var message  = form.message.value.trim();
+
+        if (!fullName || !email || !role || !message) {
+          alert("Please fill in all required fields before submitting.");
+          return;
+        }
+
+        var subject = encodeURIComponent("Project Kasena Application — " + role + " — " + fullName);
+        var body    = encodeURIComponent(
+          "Name: " + fullName + "\n" +
+          "Email: " + email + "\n" +
+          "Phone: " + (form.phone.value.trim() || "—") + "\n" +
+          "Role: " + role + "\n\n" +
+          "Why I want to join:\n" + message
+        );
+
+        window.location.href = "mailto:pwavwef@gmail.com?subject=" + subject + "&body=" + body;
+
+        form.style.display = "none";
+        successMsg.style.display = "block";
+      });
+    }());
+  </script>
+
+</body>
+</html>

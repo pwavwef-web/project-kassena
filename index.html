@@ -964,7 +964,7 @@
           <div class="carousel-track-outer">
             <div class="carousel-track" id="carouselTrack">
               <div class="carousel-slide">
-                <img src="assets/project_kasena_linkedin_carousel/slide_1.png" alt="Alliance announcement slide 1" loading="lazy" />
+                <img src="assets/project_kasena_linkedin_carousel/slide_1.png" alt="Alliance announcement slide 1" />
               </div>
               <div class="carousel-slide">
                 <img src="assets/project_kasena_linkedin_carousel/slide_2.png" alt="Alliance announcement slide 2" loading="lazy" />
@@ -1123,7 +1123,7 @@
       nextBtn.addEventListener("click", function () { goTo(current + 1); });
 
       // Swipe support
-      var startX = 0;
+      let startX = 0;
       track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
       track.addEventListener("touchend", function (e) {
         var diff = startX - e.changedTouches[0].clientX;

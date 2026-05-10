@@ -875,6 +875,7 @@
       var form = document.getElementById("applyForm");
       var successMsg = document.getElementById("formSuccess");
       var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+      var formSubmitAjaxUrl = "https://formsubmit.co/ajax/apply@azlearner.me";
       if (!form) return;
 
       form.addEventListener("submit", async function (e) {
@@ -896,7 +897,7 @@
         }
 
         try {
-          var response = await fetch("https://formsubmit.co/ajax/apply@azlearner.me", {
+          var response = await fetch(formSubmitAjaxUrl, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -913,12 +914,12 @@
             })
           });
 
-          if (!response.ok) throw new Error("Submission failed");
+          if (!response.ok) throw new Error("Submission failed (" + response.status + " " + response.statusText + ")");
 
           form.style.display = "none";
           successMsg.style.display = "block";
         } catch (err) {
-          alert("Sorry, we could not submit your application right now. Please try again.");
+          alert("Sorry, we could not submit your application right now. Please try again. " + err.message);
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = "Submit application →";

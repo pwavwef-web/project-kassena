@@ -877,6 +877,9 @@
       var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
       var submitBtnDefaultText = submitBtn ? submitBtn.textContent : "";
       var formSubmitAjaxUrl = "https://formsubmit.co/ajax/apply@azlearner.me";
+      var cleanForSubject = function (value) {
+        return String(value || "").replace(/[\r\n]+/g, " ").trim().slice(0, 120);
+      };
       if (!form) return;
 
       form.addEventListener("submit", async function (e) {
@@ -910,8 +913,7 @@
               phone: form.phone.value.trim() || "—",
               role: role,
               message: message,
-              _subject: "Project Kasena Application — " + role + " — " + fullName,
-              _captcha: "false"
+              _subject: "Project Kasena Application — " + cleanForSubject(role) + " — " + cleanForSubject(fullName)
             })
           });
 

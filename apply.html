@@ -799,7 +799,7 @@
 
         <div class="apply-form-wrap" id="applicationForm">
           <h3>Send your application</h3>
-          <form id="applyForm" action="https://formsubmit.co/apply@azlearner.me" method="POST" novalidate>
+          <form id="applyForm" novalidate>
             <div class="form-group">
               <label for="fullName">Full name <span aria-hidden="true">*</span></label>
               <input type="text" id="fullName" name="fullName" required placeholder="e.g. Akosua Abubakar" autocomplete="name" />
@@ -875,6 +875,7 @@
       var form = document.getElementById("applyForm");
       var successMsg = document.getElementById("formSuccess");
       var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+      var submitBtnDefaultText = submitBtn ? submitBtn.textContent : "";
       var formSubmitAjaxUrl = "https://formsubmit.co/ajax/apply@azlearner.me";
       if (!form) return;
 
@@ -919,10 +920,11 @@
           form.style.display = "none";
           successMsg.style.display = "block";
         } catch (err) {
-          alert("Sorry, we could not submit your application right now. Please try again. " + err.message);
+          console.error(err);
+          alert("Sorry, we could not submit your application right now. Please try again.");
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = "Submit application →";
+            submitBtn.textContent = submitBtnDefaultText;
           }
         }
       });

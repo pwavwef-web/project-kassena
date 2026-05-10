@@ -799,7 +799,7 @@
 
         <div class="apply-form-wrap" id="applicationForm">
           <h3>Send your application</h3>
-          <form id="applyForm" novalidate>
+          <form id="applyForm" action="https://formsubmit.co/apply@azlearner.me" method="POST" novalidate>
             <div class="form-group">
               <label for="fullName">Full name <span aria-hidden="true">*</span></label>
               <input type="text" id="fullName" name="fullName" required placeholder="e.g. Akosua Abubakar" autocomplete="name" />
@@ -870,13 +870,14 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Application form — send via mailto fallback
+    // Application form — send via FormSubmit
     (function () {
       var form = document.getElementById("applyForm");
       var successMsg = document.getElementById("formSuccess");
+      var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
       if (!form) return;
 
-      form.addEventListener("submit", function (e) {
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         var fullName = form.fullName.value.trim();
@@ -889,19 +890,40 @@
           return;
         }
 
-        var subject = encodeURIComponent("Project Kasena Application — " + role + " — " + fullName);
-        var body    = encodeURIComponent(
-          "Name: " + fullName + "\n" +
-          "Email: " + email + "\n" +
-          "Phone: " + (form.phone.value.trim() || "—") + "\n" +
-          "Role: " + role + "\n\n" +
-          "Why I want to join:\n" + message
-        );
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Submitting...";
+        }
 
-        window.location.href = "mailto:apply@azlearner.me?subject=" + subject + "&body=" + body;
+        try {
+          var response = await fetch("https://formsubmit.co/ajax/apply@azlearner.me", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+              fullName: fullName,
+              email: email,
+              phone: form.phone.value.trim() || "—",
+              role: role,
+              message: message,
+              _subject: "Project Kasena Application — " + role + " — " + fullName,
+              _captcha: "false"
+            })
+          });
 
-        form.style.display = "none";
-        successMsg.style.display = "block";
+          if (!response.ok) throw new Error("Submission failed");
+
+          form.style.display = "none";
+          successMsg.style.display = "block";
+        } catch (err) {
+          alert("Sorry, we could not submit your application right now. Please try again.");
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Submit application →";
+          }
+        }
       });
     }());
   </script>

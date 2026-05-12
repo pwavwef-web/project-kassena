@@ -421,6 +421,11 @@
       text-transform: uppercase;
     }
 
+    .section-tag-light {
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 0;
+    }
+
     h2 {
       margin: 0;
       color: var(--green-950);
@@ -660,6 +665,26 @@
       border-radius: inherit;
     }
 
+    .budget-fill-gold {
+      width: 40%;
+      background: linear-gradient(90deg, var(--gold-500), var(--budget-gold));
+    }
+
+    .budget-fill-mint {
+      width: 32%;
+      background: linear-gradient(90deg, var(--green-500), var(--budget-mint));
+    }
+
+    .budget-fill-blue {
+      width: 16%;
+      background: linear-gradient(90deg, #2f8fff, var(--budget-blue));
+    }
+
+    .budget-fill-coral {
+      width: 12%;
+      background: linear-gradient(90deg, #e07a6d, var(--budget-coral));
+    }
+
     .detail-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       margin-top: 18px;
@@ -864,7 +889,7 @@
       </a>
       <div class="nav-actions">
         <a class="nav-link" href="/">Back to Home</a>
-        <a class="nav-link-outline" href="assets/docs/Project_Kasena_MVP_Budget.docx">Download Source Doc (DOCX)</a>
+        <a class="nav-link-outline" href="assets/docs/Project_Kasena_MVP_Budget.docx" download title="Download Project Kasena MVP Architecture and Budget Framework document (DOCX)">Download Source Doc (DOCX)</a>
       </div>
     </div>
   </header>
@@ -983,7 +1008,7 @@
         </article>
 
         <aside class="quote-panel">
-          <p class="section-tag" style="color: rgba(255,255,255,0.72); margin-bottom: 0;">Project framing</p>
+          <p class="section-tag section-tag-light">Project framing</p>
           <blockquote>
             “Every language lost is a world gone silent. Project Kasena is a community’s act of remembrance — and a nation’s investment in its own future.”
           </blockquote>
@@ -1096,28 +1121,28 @@
             <h3>Pillar 1 — Youth Contributors</h3>
             <p><strong>GHS 10,000 · 40%</strong> allocated to bounty payments at <strong>GHS 0.50 per verified phrase</strong>.</p>
             <p>This turns language preservation into a meaningful income opportunity while encouraging wide participation across SHS and university networks.</p>
-            <div class="budget-bar" aria-hidden="true"><span style="width: 40%; background: linear-gradient(90deg, #d9a323, #f0c04d);"></span></div>
+            <div class="budget-bar" aria-hidden="true"><span class="budget-fill-gold"></span></div>
           </article>
 
           <article class="funding-card">
             <h3>Pillar 2 — Elder &amp; Teacher Validators</h3>
             <p><strong>GHS 8,000 · 32%</strong> funds 3–4 validators through structured stipends, preserving quality, dialect sensitivity, and cultural meaning.</p>
             <p>The plan assumes up to 4 validators receiving <strong>GHS 1,000 per month for 2 months</strong>.</p>
-            <div class="budget-bar" aria-hidden="true"><span style="width: 32%; background: linear-gradient(90deg, #2fa66a, #7bd49c);"></span></div>
+            <div class="budget-bar" aria-hidden="true"><span class="budget-fill-mint"></span></div>
           </article>
 
           <article class="funding-card">
             <h3>Pillar 3 — Community Mobilisation &amp; Data Drives</h3>
             <p><strong>GHS 4,000 · 16%</strong> supports organised school activations, radio outreach, travel logistics, print materials, and visible project branding.</p>
             <p>Target venues include Navrongo SHS, Notre Dame Girls’ SHS, CKT-UTAS Navrongo Campus, and community centres in Paga, Chuchuliga, and Sandema.</p>
-            <div class="budget-bar" aria-hidden="true"><span style="width: 16%; background: linear-gradient(90deg, #2f8fff, #58a7ff);"></span></div>
+            <div class="budget-bar" aria-hidden="true"><span class="budget-fill-blue"></span></div>
           </article>
 
           <article class="funding-card">
             <h3>Pillar 4 — Tech Operations &amp; Contingency</h3>
             <p><strong>GHS 3,000 · 12%</strong> covers domain setup, OTP verification, early infrastructure upgrades, and a contingency reserve for emerging needs.</p>
             <p>This keeps the MVP resilient without overbuilding expensive infrastructure too early.</p>
-            <div class="budget-bar" aria-hidden="true"><span style="width: 12%; background: linear-gradient(90deg, #e07a6d, #f28c86);"></span></div>
+            <div class="budget-bar" aria-hidden="true"><span class="budget-fill-coral"></span></div>
           </article>
         </div>
 
@@ -1330,7 +1355,7 @@
 
   <footer class="container">
     Budget source:
-    <a href="assets/docs/Project_Kasena_MVP_Budget.docx">
+    <a href="assets/docs/Project_Kasena_MVP_Budget.docx" download title="Download Project Kasena MVP Architecture and Budget Framework document (DOCX)">
       <strong>Project Kasena MVP Architecture &amp; Budget Framework (DOCX)</strong>
     </a>.
   </footer>

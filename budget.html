@@ -189,7 +189,6 @@
       line-height: 1.02;
       letter-spacing: -0.04em;
       color: var(--green-980);
-      max-width: 10ch;
     }
 
     .lead {
@@ -810,6 +809,18 @@
       font-size: 0.94rem;
     }
 
+    .source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      color: var(--green-900);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
     @media (max-width: 1120px) {
       .hero-grid,
       .summary-grid,
@@ -1355,8 +1366,8 @@
 
   <footer class="container">
     Budget source:
-    <a href="assets/docs/Project_Kasena_MVP_Budget.docx" download title="Download Project Kasena MVP Architecture and Budget Framework document (DOCX)">
-      <strong>Project Kasena MVP Architecture &amp; Budget Framework (DOCX)</strong>
+    <a class="source-link" href="assets/docs/Project_Kasena_MVP_Budget.docx" download title="Download Project Kasena MVP Architecture and Budget Framework document (DOCX)">
+      <strong>↓ Download the Project Kasena MVP Architecture &amp; Budget Framework (DOCX)</strong>
     </a>.
   </footer>
 </body>

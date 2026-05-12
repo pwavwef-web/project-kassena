@@ -3,218 +3,848 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Project Kasena Aspire Seed Funding Budget with allocation details and long-term resource strategy." />
+  <meta name="description" content="Project Kasena Phase 1 MVP architecture and budget framework for the GHS 25,000 seed grant request." />
   <link rel="canonical" href="https://kasena.azlearner.me/budget" />
   <link rel="icon" href="assets/project-kasena-logo.png" type="image/png" />
   <meta name="theme-color" content="#063d2b" />
-  <title>Project Kasena | Aspire Seed Funding Budget</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Project Kasena | MVP Architecture &amp; Budget Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
+      --green-980: #041f17;
       --green-950: #062f23;
       --green-900: #073d2b;
+      --green-800: #0a533a;
       --green-700: #146446;
+      --green-500: #2fa66a;
       --gold-500: #d9a323;
+      --gold-400: #e2b955;
       --gold-200: #f6df9d;
+      --cream-50: #fffdf8;
       --cream-100: #fbf5e8;
       --cream-200: #f3ead8;
-      --white: #ffffff;
+      --cream-300: #ead8b8;
+      --slate: #32463d;
       --ink: #10231c;
       --muted: #5b6b63;
+      --white: #ffffff;
       --border: rgba(6, 47, 35, 0.12);
-      --shadow: 0 18px 42px rgba(6, 47, 35, 0.12);
-      --radius: 20px;
+      --shadow: 0 18px 40px rgba(6, 47, 35, 0.12);
+      --radius: 24px;
+      --radius-sm: 16px;
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background: linear-gradient(180deg, #fff9ee 0%, var(--cream-100) 100%);
+      background:
+        radial-gradient(circle at top left, rgba(246, 223, 157, 0.35), transparent 34%),
+        linear-gradient(180deg, #fff9ee 0%, var(--cream-100) 100%);
       line-height: 1.65;
     }
+
     a { color: inherit; text-decoration: none; }
-    .container { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
     .nav {
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(251, 245, 232, 0.92);
+      backdrop-filter: blur(14px);
+      background: rgba(251, 245, 232, 0.88);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(10px);
     }
+
     .nav-inner {
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
     }
+
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      color: var(--green-950);
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--green-950);
       font-size: 0.92rem;
     }
+
     .brand img {
       width: 42px;
       height: 42px;
-      border-radius: 10px;
       object-fit: cover;
-    }
-    .nav-link {
-      font-weight: 700;
-      color: var(--green-900);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 10px 16px;
-      background: rgba(255, 255, 255, 0.65);
+      border-radius: 12px;
+      box-shadow: 0 10px 22px rgba(6, 47, 35, 0.18);
     }
 
-    .hero { padding: 72px 0 34px; }
-    .eyebrow {
-      display: inline-block;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      color: var(--green-900);
-      border: 1px solid var(--border);
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link,
+    .nav-link-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
       border-radius: 999px;
-      padding: 8px 13px;
-      background: rgba(255, 255, 255, 0.68);
+      font-weight: 700;
+      font-size: 0.95rem;
     }
-    h1 {
-      margin: 18px 0 14px;
+
+    .nav-link {
       color: var(--green-950);
-      font-size: clamp(2rem, 5.2vw, 3.3rem);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-    .lead {
-      margin: 0;
-      max-width: 760px;
-      color: #30423a;
-      font-size: 1.05rem;
-    }
-    .totals {
-      margin-top: 26px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-    }
-    .total-card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
-      box-shadow: 0 8px 18px rgba(6, 47, 35, 0.08);
     }
-    .total-label {
-      margin: 0 0 6px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+
+    .nav-link-outline {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--green-800), var(--green-700));
+      box-shadow: 0 12px 24px rgba(6, 47, 35, 0.16);
     }
-    .total-value {
-      margin: 0;
-      font-size: 1.45rem;
+
+    .hero {
+      padding: 72px 0 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.9fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-visual,
+    .section-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(6, 47, 35, 0.1);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .hero-copy {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -70px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(217, 163, 35, 0.24), rgba(217, 163, 35, 0));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--green-900);
+      font-size: 0.78rem;
       font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: var(--green-980);
+      max-width: 10ch;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 62ch;
+      font-size: 1.06rem;
+      color: #30423a;
+    }
+
+    .hero-notes {
+      margin: 22px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-notes div {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--slate);
+      font-size: 0.98rem;
+    }
+
+    .note-mark {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--green-900);
+      background: rgba(20, 100, 70, 0.12);
+      font-weight: 800;
+    }
+
+    .stats-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 24px rgba(6, 47, 35, 0.08);
+    }
+
+    .stat-label {
+      margin: 0 0 8px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .stat-value {
+      margin: 0;
       color: var(--green-950);
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .hero-visual {
+      padding: 28px;
+      display: grid;
+      gap: 20px;
+      align-content: start;
+      background:
+        linear-gradient(180deg, rgba(7, 61, 43, 0.98) 0%, rgba(7, 61, 43, 0.92) 100%),
+        linear-gradient(135deg, #0d5a3f 0%, #083b2a 100%);
+      color: var(--white);
+    }
+
+    .visual-title {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .donut-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .donut-chart {
+      width: 220px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      margin: 0 auto;
+      background:
+        conic-gradient(
+          #f0c04d 0 40%,
+          #7bd49c 40% 72%,
+          #58a7ff 72% 88%,
+          #f28c86 88% 100%
+        );
+      box-shadow: inset 0 0 0 14px rgba(255, 255, 255, 0.08), 0 18px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .donut-chart::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #0a3f2d, #07281d);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 0 36px;
+      z-index: 1;
+    }
+
+    .donut-center strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .donut-center span {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .legend {
+      display: grid;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .legend-item b {
+      font-size: 0.96rem;
+      color: var(--white);
+    }
+
+    .legend-item span,
+    .legend-item small {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-gold { background: #f0c04d; }
+    .dot-mint { background: #7bd49c; }
+    .dot-blue { background: #58a7ff; }
+    .dot-coral { background: #f28c86; }
+
+    .visual-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-panel {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .mini-panel p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.88rem;
+    }
+
+    .mini-panel strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.15rem;
+      color: var(--white);
+    }
+
+    .main-stack {
+      padding-bottom: 48px;
     }
 
     .section-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
-      margin: 28px 0;
+      padding: 30px;
+      margin: 30px 0;
     }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--green-800);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     h2 {
-      margin: 0 0 14px;
-      font-size: 1.4rem;
+      margin: 0;
       color: var(--green-950);
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: #32453d;
+    }
+
+    .summary-grid,
+    .architecture-grid,
+    .metrics-grid,
+    .roadmap-grid,
+    .detail-grid,
+    .resource-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .summary-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .summary-panel,
+    .quote-panel,
+    .architecture-card,
+    .metric-card,
+    .roadmap-card,
+    .detail-card,
+    .resource-card,
+    .funding-card,
+    .table-wrap,
+    .timeline-card {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #fffdf7 100%);
+      box-shadow: 0 12px 26px rgba(6, 47, 35, 0.06);
+    }
+
+    .summary-panel,
+    .quote-panel,
+    .funding-card,
+    .timeline-card {
+      padding: 22px;
+    }
+
+    .summary-list,
+    .check-list,
+    .resource-list {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-list li,
+    .check-list li,
+    .resource-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .summary-list span,
+    .check-list span,
+    .resource-list span {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      flex: 0 0 26px;
+      display: grid;
+      place-items: center;
+      background: rgba(20, 100, 70, 0.12);
+      color: var(--green-900);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .quote-panel {
+      background: linear-gradient(180deg, #0a5138 0%, #083524 100%);
+      color: var(--white);
+      display: grid;
+      gap: 16px;
+      align-content: center;
+    }
+
+    .quote-panel p,
+    .quote-panel li {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .quote-panel blockquote {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.5;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .quote-panel strong {
+      color: var(--white);
+    }
+
+    .architecture-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .architecture-card,
+    .metric-card,
+    .roadmap-card,
+    .detail-card,
+    .resource-card {
+      padding: 22px;
+    }
+
+    .architecture-card h3,
+    .metric-card h3,
+    .roadmap-card h3,
+    .detail-card h3,
+    .resource-card h3,
+    .funding-card h3,
+    .timeline-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.02rem;
+      color: var(--green-900);
       letter-spacing: -0.01em;
     }
-    p { margin: 0 0 14px; color: #2b3f36; }
+
+    .icon-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, rgba(20, 100, 70, 0.14), rgba(217, 163, 35, 0.18));
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f5f1e4;
+      color: var(--green-900);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .flow-diagram {
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(246, 223, 157, 0.28), rgba(47, 166, 106, 0.1));
+      border: 1px solid rgba(6, 47, 35, 0.08);
+    }
+
+    .flow-track {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: center;
+    }
+
+    .flow-node {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(6, 47, 35, 0.08);
+      text-align: center;
+      min-height: 120px;
+      display: grid;
+      align-content: center;
+      gap: 6px;
+    }
+
+    .flow-node strong {
+      font-size: 0.95rem;
+      color: var(--green-950);
+    }
+
+    .flow-node span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .flow-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--green-800);
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .funding-layout {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .pillar-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .funding-card p:last-child,
+    .detail-card p:last-child,
+    .metric-card p:last-child,
+    .roadmap-card p:last-child,
+    .resource-card p:last-child { margin-bottom: 0; }
+
+    .budget-bar {
+      margin-top: 14px;
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #ece3cf;
+    }
+
+    .budget-bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .detail-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 18px;
+    }
 
     .table-wrap {
       overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #fffdf7;
+      padding: 6px;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       min-width: 760px;
     }
+
     thead th {
-      background: linear-gradient(180deg, #fdf3dd 0%, #f6e2b7 100%);
-      color: #1c261f;
       text-align: left;
-      font-size: 0.85rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-    th, td {
       padding: 14px 16px;
+      background: linear-gradient(180deg, #fef1d4 0%, #f7dfab 100%);
+      color: #1d2b24;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.8rem;
+    }
+
+    tbody td {
+      padding: 16px;
       border-bottom: 1px solid var(--border);
       vertical-align: top;
-    }
-    tbody tr:last-child td { border-bottom: 0; }
-    tbody td:nth-child(1) { width: 22%; font-weight: 700; color: var(--green-900); }
-    tbody td:nth-child(2) { width: 50%; }
-    tbody td:nth-child(3),
-    tbody td:nth-child(4) { width: 14%; white-space: nowrap; font-weight: 700; }
-    .total-row td {
-      background: #f9edd2;
-      font-weight: 800 !important;
-      color: #1e2e27 !important;
+      color: #33483f;
     }
 
-    .strategy-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 16px;
-    }
-    .strategy-list li {
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, #ffffff 0%, #fffcf3 100%);
-      border-radius: 14px;
-      padding: 16px 18px;
-    }
-    .strategy-list h3 {
-      margin: 0 0 8px;
-      font-size: 1.02rem;
+    tbody tr:last-child td { border-bottom: 0; }
+
+    tbody td:nth-child(1) {
+      width: 26%;
+      font-weight: 700;
       color: var(--green-900);
     }
-    .strategy-list p { margin: 0; color: #33483e; }
 
-    footer {
-      padding: 16px 0 46px;
-      color: var(--muted);
+    tbody td:nth-child(3),
+    tbody td:nth-child(4),
+    tbody td:nth-child(5) {
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .total-row td {
+      background: #f8ebc9;
+      color: #1c2c24;
+      font-weight: 800;
+    }
+
+    .metrics-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric-topline {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--green-950);
+      margin: 0 0 8px;
+    }
+
+    .resource-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .resource-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fcf7eb 100%);
+    }
+
+    .roadmap-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .roadmap-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(20, 100, 70, 0.12);
+      color: var(--green-900);
+      font-weight: 800;
       font-size: 0.92rem;
     }
 
-    @media (max-width: 700px) {
-      .section-card { padding: 20px; }
+    .timeline-card {
+      margin-top: 20px;
+      background: linear-gradient(135deg, #fffefb 0%, #f4ead8 100%);
+    }
+
+    .timeline-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .timeline-milestone {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(6, 47, 35, 0.08);
+    }
+
+    .timeline-milestone strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green-950);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      padding: 0 0 46px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .summary-grid,
+      .funding-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture-grid,
+      .metrics-grid,
+      .roadmap-grid,
+      .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .donut-layout,
+      .timeline-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-track {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 28px, 100%); }
       .hero { padding-top: 56px; }
-      .nav-inner { min-height: 68px; }
-      .brand span { display: none; }
+      .hero-copy,
+      .hero-visual,
+      .section-card { padding: 22px; }
+      .architecture-grid,
+      .metrics-grid,
+      .roadmap-grid,
+      .detail-grid,
+      .resource-grid,
+      .stats-grid,
+      .visual-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      .timeline-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -225,115 +855,474 @@
         <img src="assets/project-kasena-logo.png" alt="Project Kasena logo" />
         <span>Project Kasena</span>
       </a>
-      <a class="nav-link" href="/">Back to Home</a>
+      <div class="nav-actions">
+        <a class="nav-link" href="/">Back to Home</a>
+        <a class="nav-link-outline" href="assets/docs/Project_Kasena_MVP_Budget.docx">Download Source Doc</a>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main class="main-stack">
     <section class="hero">
-      <div class="container">
-        <span class="eyebrow">Aspire Seed Funding Budget</span>
-        <h1>Project Kasena Budget Overview</h1>
-        <p class="lead">
-          Project Lead: <strong>Francis Pwavwe</strong>. This page presents the official allocation of the
-          <strong>$500 USD</strong> (approximately <strong>5,000 GHS</strong>) Aspire seed grant for the 9-week MVP launch and initial data collection sprint.
-        </p>
-        <div class="totals">
-          <article class="total-card">
-            <p class="total-label">Total Request (USD)</p>
-            <p class="total-value">$500</p>
+      <div class="container hero-grid">
+        <article class="hero-copy">
+          <span class="eyebrow">MVP Architecture &amp; Budget Framework</span>
+          <h1>Funding a community-built Kasem language future.</h1>
+          <p class="lead">
+            Project Kasena is requesting <strong>GHS 25,000</strong> in seed funding to launch a practical Phase 1 MVP,
+            collect <strong>20,000+ verified Kasem phrases</strong>, and create the validated digital foundation needed for
+            future translation, voice, and education tools.
+          </p>
+
+          <div class="hero-notes">
+            <div><span class="note-mark">1</span><span><strong>Mission:</strong> Build the first open, large-scale Kasem dataset verified by elders and powered by youth contributors.</span></div>
+            <div><span class="note-mark">2</span><span><strong>MVP focus:</strong> Prioritise data collection, transparent incentives, and strong validation before moving into advanced AI work.</span></div>
+            <div><span class="note-mark">3</span><span><strong>Funding audience:</strong> Designed for presentation to a District Assembly or Member of Parliament as a practical local innovation investment.</span></div>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <p class="stat-label">Seed request</p>
+              <p class="stat-value">GHS 25,000</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Primary output</p>
+              <p class="stat-value">20,000+ verified entries</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Contributor network</p>
+              <p class="stat-value">200–500 youth contributors</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Validator team</p>
+              <p class="stat-value">3–4 elders &amp; teachers</p>
+            </article>
+          </div>
+        </article>
+
+        <aside class="hero-visual" aria-label="Budget distribution illustration">
+          <p class="visual-title">Budget at a glance</p>
+          <div class="donut-layout">
+            <div class="donut-chart" aria-hidden="true">
+              <div class="donut-center">
+                <div>
+                  <strong>100%</strong>
+                  <span>Phase 1 seed request</span>
+                </div>
+              </div>
+            </div>
+            <div class="legend">
+              <div class="legend-item">
+                <span class="dot dot-gold"></span>
+                <div><b>Youth Contributors</b><br /><small>Data bounties @ GHS 0.50 per verified phrase</small></div>
+                <span>40%</span>
+              </div>
+              <div class="legend-item">
+                <span class="dot dot-mint"></span>
+                <div><b>Validators</b><br /><small>Elders and teachers safeguarding accuracy</small></div>
+                <span>32%</span>
+              </div>
+              <div class="legend-item">
+                <span class="dot dot-blue"></span>
+                <div><b>Mobilisation</b><br /><small>Data drives, radio, logistics, and incentives</small></div>
+                <span>16%</span>
+              </div>
+              <div class="legend-item">
+                <span class="dot dot-coral"></span>
+                <div><b>Tech Ops &amp; Contingency</b><br /><small>Domain, OTP, upgrades, and reserve</small></div>
+                <span>12%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-strip">
+            <article class="mini-panel">
+              <strong>PWA-ready</strong>
+              <p>Browser install, offline-first potential, and low-data adoption.</p>
+            </article>
+            <article class="mini-panel">
+              <strong>AI-native</strong>
+              <p>Python + FastAPI chosen to align with future NLP and ML models.</p>
+            </article>
+            <article class="mini-panel">
+              <strong>Transparent</strong>
+              <p>Trackable payouts and exportable reports for funding accountability.</p>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container section-card">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">Executive summary</span>
+          <h2>Why this seed grant matters now</h2>
+        </div>
+      </div>
+
+      <div class="summary-grid">
+        <article class="summary-panel">
+          <p>
+            Project Kasena is a technology-driven initiative to preserve and digitise the Kasem language spoken by the
+            Kasena-Nankana people of Ghana’s Upper East Region. The Phase 1 MVP is intentionally lean: it focuses on
+            collecting, validating, and organising language data before moving to larger AI products.
+          </p>
+          <ul class="summary-list">
+            <li><span>✓</span><div><strong>Phase 1 goal:</strong> Digitise and validate 20,000 conversational phrases and vocabulary entries.</div></li>
+            <li><span>✓</span><div><strong>Structured incentives:</strong> Reward high-quality youth contributions only after expert review and approval.</div></li>
+            <li><span>✓</span><div><strong>Long-term value:</strong> Build the evidence base required for translation tools, voice interfaces, and school-ready learning products.</div></li>
+          </ul>
+        </article>
+
+        <aside class="quote-panel">
+          <p class="section-tag" style="color: rgba(255,255,255,0.72); margin-bottom: 0;">Project framing</p>
+          <blockquote>
+            “Every language lost is a world gone silent. Project Kasena is a community’s act of remembrance — and a nation’s investment in its own future.”
+          </blockquote>
+          <ul class="check-list">
+            <li><span>•</span><div><strong>Funding source:</strong> District Assembly grant or MP Constituency Development Fund.</div></li>
+            <li><span>•</span><div><strong>Accountability:</strong> Transactions tracked on-platform with exportable reports.</div></li>
+            <li><span>•</span><div><strong>Roadmap:</strong> Phase 2 expands into AI/ML, voice data, and educational deployment.</div></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container section-card">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">Technical architecture</span>
+          <h2>Lean MVP stack built for scale and future AI integration</h2>
+        </div>
+      </div>
+
+      <div class="architecture-grid">
+        <article class="architecture-card">
+          <div class="icon-badge" aria-hidden="true">📱</div>
+          <h3>Frontend</h3>
+          <p>
+            <strong>Next.js (recommended)</strong> or Flutter. The MVP prioritises PWA capability so contributors can install
+            the platform from a browser, lowering friction for users with older devices or limited data.
+          </p>
+          <div class="chip-row">
+            <span class="chip">PWA installable</span>
+            <span class="chip">Offline-first potential</span>
+            <span class="chip">Tailwind CSS</span>
+          </div>
+        </article>
+
+        <article class="architecture-card">
+          <div class="icon-badge" aria-hidden="true">⚙️</div>
+          <h3>Backend &amp; API</h3>
+          <p>
+            <strong>Python + FastAPI</strong> keeps the backend lightweight today while staying aligned with Phase 2 NLP and
+            machine learning plans. FastAPI also brings asynchronous performance and automatic API docs.
+          </p>
+          <div class="chip-row">
+            <span class="chip">AI-native ecosystem</span>
+            <span class="chip">OpenAPI docs</span>
+            <span class="chip">Built-in validation</span>
+          </div>
+        </article>
+
+        <article class="architecture-card">
+          <div class="icon-badge" aria-hidden="true">🗄️</div>
+          <h3>Database</h3>
+          <p>
+            <strong>Supabase on PostgreSQL</strong> provides hosted relational storage, authentication, and real-time
+            capabilities without heavy DevOps overhead. It supports contributor tracking, validator approval, and payout status.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Auth ready</span>
+            <span class="chip">Relational model</span>
+            <span class="chip">Scales to millions</span>
+          </div>
+        </article>
+
+        <article class="architecture-card">
+          <div class="icon-badge" aria-hidden="true">☁️</div>
+          <h3>Hosting &amp; Infrastructure</h3>
+          <p>
+            <strong>Vercel + Supabase</strong> cover MVP deployment on free tiers, while a paid upgrade buffer handles early
+            growth. Domain registration and OTP verification complete the basic production setup.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Global CDN</span>
+            <span class="chip">Automatic HTTPS</span>
+            <span class="chip">Low DevOps cost</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="flow-diagram" aria-label="Project Kasena contribution flow illustration">
+        <div class="flow-track">
+          <div class="flow-node">
+            <strong>Youth contributors</strong>
+            <span>Students submit phrases, sentences, and vocabulary entries.</span>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-node">
+            <strong>Automated checks</strong>
+            <span>Basic quality screening reduces noise before human review.</span>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-node">
+            <strong>Expert validation</strong>
+            <span>Elders and teachers approve culturally accurate content.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section-card" id="budget-breakdown">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">Funding framework</span>
+          <h2>Four investment pillars with clear payout logic and measurable outputs</h2>
+        </div>
+      </div>
+
+      <div class="funding-layout">
+        <div class="pillar-stack">
+          <article class="funding-card">
+            <h3>Pillar 1 — Youth Contributors</h3>
+            <p><strong>GHS 10,000 · 40%</strong> allocated to bounty payments at <strong>GHS 0.50 per verified phrase</strong>.</p>
+            <p>This turns language preservation into a meaningful income opportunity while encouraging wide participation across SHS and university networks.</p>
+            <div class="budget-bar" aria-hidden="true"><span style="width: 40%; background: linear-gradient(90deg, #d9a323, #f0c04d);"></span></div>
           </article>
-          <article class="total-card">
-            <p class="total-label">Total Request (GHS)</p>
-            <p class="total-value">5,000 GHS</p>
+
+          <article class="funding-card">
+            <h3>Pillar 2 — Elder &amp; Teacher Validators</h3>
+            <p><strong>GHS 8,000 · 32%</strong> funds 3–4 validators through structured stipends, preserving quality, dialect sensitivity, and cultural meaning.</p>
+            <p>The plan assumes up to 4 validators receiving <strong>GHS 1,000 per month for 2 months</strong>.</p>
+            <div class="budget-bar" aria-hidden="true"><span style="width: 32%; background: linear-gradient(90deg, #2fa66a, #7bd49c);"></span></div>
           </article>
-          <article class="total-card">
-            <p class="total-label">Sprint Duration</p>
-            <p class="total-value">9 Weeks</p>
+
+          <article class="funding-card">
+            <h3>Pillar 3 — Community Mobilisation &amp; Data Drives</h3>
+            <p><strong>GHS 4,000 · 16%</strong> supports organised school activations, radio outreach, travel logistics, print materials, and visible project branding.</p>
+            <p>Target venues include Navrongo SHS, Notre Dame Girls’ SHS, CKT-UTAS Navrongo Campus, and community centres in Paga, Chuchuliga, and Sandema.</p>
+            <div class="budget-bar" aria-hidden="true"><span style="width: 16%; background: linear-gradient(90deg, #2f8fff, #58a7ff);"></span></div>
           </article>
+
+          <article class="funding-card">
+            <h3>Pillar 4 — Tech Operations &amp; Contingency</h3>
+            <p><strong>GHS 3,000 · 12%</strong> covers domain setup, OTP verification, early infrastructure upgrades, and a contingency reserve for emerging needs.</p>
+            <p>This keeps the MVP resilient without overbuilding expensive infrastructure too early.</p>
+            <div class="budget-bar" aria-hidden="true"><span style="width: 12%; background: linear-gradient(90deg, #e07a6d, #f28c86);"></span></div>
+          </article>
+        </div>
+
+        <div>
+          <div class="table-wrap">
+            <table aria-label="Project Kasena MVP budget summary table">
+              <thead>
+                <tr>
+                  <th>Budget line item</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Share</th>
+                  <th>Output logic</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pillar 1: Youth Contributors</td>
+                  <td>Data bounties paid only for verified phrases and vocabulary submissions.</td>
+                  <td>GHS 10,000</td>
+                  <td>40%</td>
+                  <td>Targets 20,000 verified entries at GHS 0.50 each.</td>
+                </tr>
+                <tr>
+                  <td>Pillar 2: Validators</td>
+                  <td>Elder and teacher reviewers approve, reject, and safeguard language quality.</td>
+                  <td>GHS 8,000</td>
+                  <td>32%</td>
+                  <td>Supports 4 validators for 2 months at GHS 1,000 monthly.</td>
+                </tr>
+                <tr>
+                  <td>Pillar 3: Mobilisation</td>
+                  <td>Data drive events, community awareness, printed materials, and visibility items.</td>
+                  <td>GHS 4,000</td>
+                  <td>16%</td>
+                  <td>Engages schools, campuses, and community centres across the region.</td>
+                </tr>
+                <tr>
+                  <td>Pillar 4: Tech Ops &amp; Contingency</td>
+                  <td>Domain, SMS/OTP, first paid upgrades, and risk buffer.</td>
+                  <td>GHS 3,000</td>
+                  <td>12%</td>
+                  <td>Protects uptime, identity, and operational continuity.</td>
+                </tr>
+                <tr class="total-row">
+                  <td>Total seed request</td>
+                  <td>Phase 1 MVP architecture, mobilisation, validation, and verified data generation.</td>
+                  <td>GHS 25,000</td>
+                  <td>100%</td>
+                  <td>Launches the first validated Kasem digital corpus pipeline.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Mobilisation breakdown</h3>
+              <p><strong>Transport &amp; logistics:</strong> GHS 1,500 for organiser travel, fuel, and school coordination.</p>
+              <p><strong>Radio campaign:</strong> GHS 1,000 for Nabiina Radio and Radio Upper East awareness in Kasem and English.</p>
+              <p><strong>Physical incentives:</strong> GHS 1,000 for branded T-shirts, certificates, and prizes.</p>
+              <p><strong>Print materials:</strong> GHS 500 for posters, flyers, and bilingual how-to guides.</p>
+            </article>
+            <article class="detail-card">
+              <h3>Technology operations breakdown</h3>
+              <p><strong>Domain registration:</strong> GHS 150 for kasena-ai.org or kasena.app.</p>
+              <p><strong>SMS gateway / OTP:</strong> GHS 400 for trusted mobile verification and duplicate-account control.</p>
+              <p><strong>Paid upgrade buffer:</strong> GHS 500 for early Supabase or Vercel scaling if demand rises quickly.</p>
+              <p><strong>Contingency reserve:</strong> GHS 1,950 for unforeseen delays, transport needs, or partnership opportunities.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="container section-card">
-      <h2>1. Seed Funding Budget Table</h2>
-      <p>The table below details the allocation of the Aspire grant to directly support MVP deployment and the first wave of validated language data collection.</p>
-      <div class="table-wrap">
-        <table aria-label="Project Kasena seed funding budget table">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Project Activity / Description</th>
-              <th>Allocation (GHS)</th>
-              <th>Approx. (USD)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Tech Infrastructure</td>
-              <td>Funding for MVP deployment: domain name registration (.org or .com), cloud database hosting (Supabase), and SMS gateway costs for user authentication (OTP).</td>
-              <td>1,000</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Pilot "Data Bounties"</td>
-              <td>Micro-payments (e.g., GHS 0.50/phrase) for the first wave of student contributors to prove the gamified crowdsourcing model. Supports ~3,000 initial phrases.</td>
-              <td>1,500</td>
-              <td>$150</td>
-            </tr>
-            <tr>
-              <td>Validator Honorariums</td>
-              <td>Small stipends for 2 local language experts (teachers/elders) to validate the first wave of crowdsourced data for cultural and dialect accuracy during the sprint.</td>
-              <td>1,000</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Community Mobilization</td>
-              <td>Logistics for the first data drive at a local Senior High School, including printed flyers, a radio announcement, and branded T-shirts for the core Basecamp team.</td>
-              <td>1,000</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Contingency Fund</td>
-              <td>Buffer for unforeseen operational costs, software licenses, or fluctuating exchange rates during the 9-week sprint.</td>
-              <td>500</td>
-              <td>$50</td>
-            </tr>
-            <tr class="total-row">
-              <td>TOTAL</td>
-              <td></td>
-              <td>5,000 GHS</td>
-              <td>$500 USD</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="section-header">
+        <div>
+          <span class="section-tag">Accountability &amp; outcomes</span>
+          <h2>What the funding is expected to deliver</h2>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <p class="metric-topline">20,000+</p>
+          <h3>Validated dataset entries</h3>
+          <p>Conversational phrases, sentences, and vocabulary items collected, screened, and approved for long-term language preservation use.</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-topline">200–500</p>
+          <h3>Active youth contributors</h3>
+          <p>Students engaged through structured bounty incentives, healthy competition, and public recognition inside the platform.</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-topline">3–4</p>
+          <h3>Certified validators</h3>
+          <p>Elders and teachers with documented review history ensuring linguistic accuracy and cultural integrity.</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-topline">5+</p>
+          <h3>Schools and groups reached</h3>
+          <p>Data drives and outreach campaigns extend participation across schools, campuses, and community networks in the Kasena-Nankana area.</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-topline">1 live MVP</p>
+          <h3>Publicly accessible platform</h3>
+          <p>A working web/PWA application with contributor registration, data submission, tracking, and validation workflow.</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-topline">Phase 2 ready</p>
+          <h3>AI training foundation</h3>
+          <p>A sufficient validated corpus to begin fine-tuning translation, language-learning, and audio-enabled Kasem tools.</p>
+        </article>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h3>Why the bounty model works</h3>
+          <ul class="resource-list">
+            <li><span>1</span><div>It makes preservation economically meaningful for students and drives volume quickly.</div></li>
+            <li><span>2</span><div>Payments are tied to validation, so quality remains central.</div></li>
+            <li><span>3</span><div>Leaderboards and public recognition strengthen organic participation.</div></li>
+          </ul>
+        </article>
+        <article class="resource-card">
+          <h3>Why validators are non-negotiable</h3>
+          <ul class="resource-list">
+            <li><span>1</span><div>Kasem is largely oral, so raw internet data cannot be trusted as a formal corpus.</div></li>
+            <li><span>2</span><div>Expert review protects proverb meaning, idioms, and dialect-sensitive usage.</div></li>
+            <li><span>3</span><div>Validation raises credibility with universities, research partners, and future funders.</div></li>
+          </ul>
+        </article>
+        <article class="resource-card">
+          <h3>Operational safeguards</h3>
+          <ul class="resource-list">
+            <li><span>1</span><div>OTP verification reduces duplicate accounts and payout abuse.</div></li>
+            <li><span>2</span><div>Free-tier infrastructure keeps overhead low during early validation.</div></li>
+            <li><span>3</span><div>On-platform reporting supports transparency for public funding partners.</div></li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <section class="container section-card">
-      <h2>2. Additional Resources &amp; Long-Term Funding Strategy</h2>
-      <p>
-        The $500 Aspire Seed Grant is the catalyst to launch the MVP and validate the crowdsourcing model. The total estimated cost for completing Phase 1 (digitizing 20,000 validated phrases) is approximately <strong>25,000 GHS</strong>.
-      </p>
-      <ul class="strategy-list">
-        <li>
-          <h3>Strategic Community Capital (Remaining 20,000 GHS)</h3>
-          <p>After early MVP traction and validation milestones in Week 9, Project Kasena will pitch local stakeholders, including Members of Parliament (Navrongo Central, Chiana-Paga) and District Assemblies, to secure Common Fund grants and scale community data bounty payouts. A community donation channel will also support diaspora contributions.</p>
-        </li>
-        <li>
-          <h3>In-Kind Resources (Labor &amp; Mentorship)</h3>
-          <p>A task force of 5-7 university student volunteers (UCC and CKT-UTAS) supports frontend development, marketing, and data organization. The project also leverages mentorship from the University of Cape Coast network and local school administrators for low-cost access to student contributors.</p>
-        </li>
-        <li>
-          <h3>Existing Open-Source Infrastructure</h3>
-          <p>To minimize costs, the MVP is built on open-source frameworks (React/Next.js) and initially relies on free cloud service tiers (Vercel, Supabase) before paid scaling becomes necessary.</p>
-        </li>
-      </ul>
+      <div class="section-header">
+        <div>
+          <span class="section-tag">Phase 2 roadmap</span>
+          <h2>Where the validated dataset leads next</h2>
+        </div>
+      </div>
+
+      <div class="roadmap-grid">
+        <article class="roadmap-card">
+          <span class="roadmap-step">1</span>
+          <h3>AI model training</h3>
+          <p>Use the verified dataset to fine-tune open-source translation and language models for Kasem-English use cases.</p>
+        </article>
+        <article class="roadmap-card">
+          <span class="roadmap-step">2</span>
+          <h3>Voice and audio capture</h3>
+          <p>Add spoken data collection to build a corpus for speech recognition and text-to-speech experiences.</p>
+        </article>
+        <article class="roadmap-card">
+          <span class="roadmap-step">3</span>
+          <h3>Educational deployment</h3>
+          <p>Translate the language corpus into school-ready literacy tools and learning apps for younger learners.</p>
+        </article>
+        <article class="roadmap-card">
+          <span class="roadmap-step">4</span>
+          <h3>Institutional partnerships</h3>
+          <p>Engage CKT-UTAS, the University of Ghana, UNESCO, and SIL for research, academic, and preservation collaboration.</p>
+        </article>
+        <article class="roadmap-card">
+          <span class="roadmap-step">5</span>
+          <h3>Expanded fundraising</h3>
+          <p>Use Phase 1 evidence to pursue larger support from innovation funds, development partners, and philanthropic backers.</p>
+        </article>
+        <article class="roadmap-card">
+          <span class="roadmap-step">6</span>
+          <h3>Regional digital inclusion</h3>
+          <p>Position Kasem preservation as a model for inclusive local-language technology development in northern Ghana.</p>
+        </article>
+      </div>
+
+      <div class="timeline-card">
+        <h3>Illustrated delivery path</h3>
+        <p>The seed grant moves Project Kasena from concept to proof, then from proof to platform, and finally from platform to long-term language infrastructure.</p>
+        <div class="timeline-grid">
+          <div class="timeline-milestone">
+            <strong>Launch</strong>
+            <p>Deploy the MVP, onboard contributors, and activate the first validators.</p>
+          </div>
+          <div class="timeline-milestone">
+            <strong>Collect</strong>
+            <p>Run data drives, radio mobilisation, and school engagement to build submission volume.</p>
+          </div>
+          <div class="timeline-milestone">
+            <strong>Validate</strong>
+            <p>Review submissions, track payouts, and organise a trustworthy digital corpus.</p>
+          </div>
+          <div class="timeline-milestone">
+            <strong>Scale</strong>
+            <p>Use verified outcomes to unlock AI partnerships, education tools, and follow-on funding.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="container">
-    Budget source: Project Kasena Aspire Seed Funding Budget document.
+    Budget source: <strong>Project Kasena MVP Architecture &amp; Budget Framework</strong> document in <code>assets/docs/Project_Kasena_MVP_Budget.docx</code>.
   </footer>
 </body>
 </html>

@@ -22,6 +22,13 @@
       --gold-500: #d9a323;
       --gold-400: #e2b955;
       --gold-200: #f6df9d;
+      --budget-gold: #f0c04d;
+      --budget-mint: #7bd49c;
+      --budget-blue: #58a7ff;
+      --budget-coral: #f28c86;
+      --budget-gold-end: 40%;
+      --budget-mint-end: 72%;
+      --budget-blue-end: 88%;
       --cream-50: #fffdf8;
       --cream-100: #fbf5e8;
       --cream-200: #f3ead8;
@@ -285,10 +292,10 @@
       margin: 0 auto;
       background:
         conic-gradient(
-          #f0c04d 0 40%,
-          #7bd49c 40% 72%,
-          #58a7ff 72% 88%,
-          #f28c86 88% 100%
+          var(--budget-gold) 0 var(--budget-gold-end),
+          var(--budget-mint) var(--budget-gold-end) var(--budget-mint-end),
+          var(--budget-blue) var(--budget-mint-end) var(--budget-blue-end),
+          var(--budget-coral) var(--budget-blue-end) 100%
         );
       box-shadow: inset 0 0 0 14px rgba(255, 255, 255, 0.08), 0 18px 30px rgba(0, 0, 0, 0.18);
     }
@@ -356,10 +363,10 @@
       border-radius: 50%;
     }
 
-    .dot-gold { background: #f0c04d; }
-    .dot-mint { background: #7bd49c; }
-    .dot-blue { background: #58a7ff; }
-    .dot-coral { background: #f28c86; }
+    .dot-gold { background: var(--budget-gold); }
+    .dot-mint { background: var(--budget-mint); }
+    .dot-blue { background: var(--budget-blue); }
+    .dot-coral { background: var(--budget-coral); }
 
     .visual-strip {
       display: grid;
